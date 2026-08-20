@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I AM GOURAB GHOSH</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="An independent sound collective pushing the boundaries of electronic kinetics and soundscapes. Explore our catalogue and live dates.">
+  <meta name="keywords" content="record label, electronic music, synthesis, vinyl release, experimental sound">
+  <!-- Google Fonts: Syne for display titles, Sora for reading text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Core stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="nav-bar" id="main-nav">
+    <div class="nav-container">
+      <a href="#hero" class="nav-wordmark" id="nav-logo">AMBER & TEAL<span class="accent-dot">.</span></a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#statement" class="nav-link" id="nav-link-manifesto">MANIFESTO</a>
+        <a href="#releases" class="nav-link" id="nav-link-releases">RELEASES</a>
+        <a href="#roster" class="nav-link" id="nav-link-roster">ROSTER</a>
+        <a href="#dates" class="nav-link" id="nav-link-dates">DATES</a>
+      </nav>
+      <a href="#subscribe" class="nav-cta-btn" id="nav-cta-subscribe">SUBSCRIBE</a>
+    </div>
+  </header>
+
+  <!-- Portal Hero Section -->
+  <section class="portal-hero" id="hero" aria-label="Portal Hero">
+    <div class="portal-stage">
+      
+      <!-- Full-bleed background image -->
+      <div class="hero-image-wrapper">
+        <img src="assets/hero_bg.jpg" class="hero-bg-img" id="hero-image" alt="Analog synthesizer gear with modular patch cables, glowing amber bulb, and teal oscilloscope screen">
+        <!-- Duotone wash overlay -->
+        <div class="duotone-wash" id="hero-wash"></div>
+        <!-- Radial veil -->
+        <div class="radial-veil" id="hero-veil"></div>
+      </div>
+      
+      <!-- Sliding panels -->
+      <div class="portal-panel left-panel" id="panel-left"></div>
+      <div class="portal-panel right-panel" id="panel-right"></div>
+      
+      <!-- Traveling dots -->
+      <div class="accent-dot dot-teal" id="traveling-dot-teal"></div>
+      <div class="accent-dot dot-amber" id="traveling-dot-amber"></div>
+      
+      <!-- Sticky Wordmark -->
+      <h1 class="portal-wordmark" id="hero-title">
+        <span class="wordmark-half left-half" id="title-left">AMBER</span>
+        <span class="wordmark-half right-half" id="title-right">TEAL</span>
+      </h1>
+      
+      <!-- Corner Metadata -->
+      <div class="corner-metadata top-left" id="meta-top-left">[CATALOGUE 2026]</div>
+      <div class="corner-metadata top-right" id="meta-top-right">CIRCUITS & CURVES</div>
+      <div class="corner-metadata bottom-left" id="meta-bottom-left">RELEASE GROUP INC.</div>
+      <div class="corner-metadata bottom-right" id="meta-bottom-right">SCROLL TO OPEN</div>
+      
+    </div>
+  </section>
+
+  <!-- Statement Fold Section -->
+  <section class="statement-fold" id="statement" aria-label="Manifesto">
+    <!-- Outline Index Numeral -->
+    <div class="statement-num" id="statement-index">01</div>
+    
+    <div class="statement-content">
+      <span class="section-label" id="label-manifesto">[ MANIFESTO ]</span>
+      <h2 class="statement-text" id="statement-phrase">
+        AN INDEPENDENT SOUND COLLECTIVE PUSHING THE BOUNDARIES OF <span class="highlight-text">ELECTRONIC KINETICS</span> AND SONIC SOUNDSCAPES.
+      </h2>
+    </div>
+    
+    <!-- Floating Circular Vinyl Record -->
+    <div class="vinyl-wrapper" id="floating-vinyl-container">
+      <img src="assets/vinyl.jpg" class="parallax-vinyl" id="floating-vinyl" alt="Spinning vinyl record showing a bone-white label with geometric design elements in amber and teal">
+    </div>
+  </section>
+
+  <!-- Releases Section -->
+  <section class="releases-section" id="releases" aria-label="Releases">
+    <div class="releases-container">
+      <!-- Left Column: Copy -->
+      <div class="releases-info">
+        <span class="section-label" id="label-releases">[ DISCOGRAPHY ]</span>
+        <h2 class="releases-headline" id="releases-title">PHYSICAL SELECTIONS</h2>
+        <p class="releases-lede" id="releases-description">
+          A curated catalog of electronic frequencies pressed onto high-grade wax. Each sleeve is a physical artifact containing rhythmic kinetic movement.
+        </p>
+        <div class="btn-group">
+          <a href="#roster" class="action-btn" id="btn-explore-roster">EXPLORE ROSTER</a>
+          <a href="#subscribe" class="action-btn secondary-btn" id="btn-join-newsletter">JOIN THE LIST</a>
+        </div>
+      </div>
+      
+      <!-- Right Column: Deck -->
+      <div class="releases-deck-wrapper">
+        <div class="deck-container" id="card-deck" tabindex="0" aria-label="Physical deck of vinyl sleeves. Swipe away using pointer or Left and Right Arrow keys.">
+          <!-- Card 4 (Bottom) -->
+          <div class="deck-card" id="card-at004" data-index="3">
+            <div class="card-inner">
+              <div class="card-sleeve-art art-004">
+                <div class="art-circle-teal"></div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta">AT004 / LP</div>
+                <div class="card-title">KINETIC FLOW</div>
+                <div class="card-artist">ENVELOPE</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="deck-card" id="card-at003" data-index="2">
+            <div class="card-inner">
+              <div class="card-sleeve-art art-003">
+                <div class="art-crosshairs"></div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta">AT003 / EP</div>
+                <div class="card-title">TEAL RESONANCE</div>
+                <div class="card-artist">OSCILLATOR</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="deck-card" id="card-at002" data-index="1">
+            <div class="card-inner">
+              <div class="card-sleeve-art art-002">
+                <div class="art-split-lines"></div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta">AT002 / LP</div>
+                <div class="card-title">ECHOES IN AMBER</div>
+                <div class="card-artist">FREQUENCY MODULATION</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 1 (Top/Active) -->
+          <div class="deck-card" id="card-at001" data-index="0">
+            <div class="card-inner">
+              <div class="card-sleeve-art art-001">
+                <div class="art-geometric-grid"></div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta">AT001 / LP</div>
+                <div class="card-title">CIRCUITS & CURVES</div>
+                <div class="card-artist">SYNTHESIS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Deck Navigation indicators -->
+        <div class="deck-controls">
+          <div class="deck-hint" id="deck-instruction">SWIPE SLEEVE OR USE ARROWS &larr; &rarr;</div>
+          <div class="deck-progress" id="deck-progress-dots">
+            <span class="progress-dot active" data-index="0" aria-label="Go to slide 1"></span>
+            <span class="progress-dot" data-index="1" aria-label="Go to slide 2"></span>
+            <span class="progress-dot" data-index="2" aria-label="Go to slide 3"></span>
+            <span class="progress-dot" data-index="3" aria-label="Go to slide 4"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roster Section -->
+  <section class="roster-section" id="roster" aria-label="Roster">
+    <div class="section-header">
+      <span class="section-label" id="label-roster">[ ARTISTS ]</span>
+      <h2 class="roster-headline">THE SOUNDS</h2>
+    </div>
+    
+    <div class="roster-list" id="artist-list">
+      <!-- Roster Row 1 -->
+      <div class="roster-row" id="roster-artist-1">
+        <span class="roster-index">01</span>
+        <h3 class="roster-name">SYNTHESIS</h3>
+        <span class="roster-count">[ 08 RELEASES ]</span>
+      </div>
+      <!-- Roster Row 2 -->
+      <div class="roster-row" id="roster-artist-2">
+        <span class="roster-index">02</span>
+        <h3 class="roster-name">FREQUENCY MODULATION</h3>
+        <span class="roster-count">[ 12 RELEASES ]</span>
+      </div>
+      <!-- Roster Row 3 -->
+      <div class="roster-row" id="roster-artist-3">
+        <span class="roster-index">03</span>
+        <h3 class="roster-name">OSCILLATOR</h3>
+        <span class="roster-count">[ 05 RELEASES ]</span>
+      </div>
+      <!-- Roster Row 4 -->
+      <div class="roster-row" id="roster-artist-4">
+        <span class="roster-index">04</span>
+        <h3 class="roster-name">ENVELOPE</h3>
+        <span class="roster-count">[ 09 RELEASES ]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dates Section -->
+  <section class="dates-section" id="dates" aria-label="Tour Dates">
+    <div class="section-header">
+      <span class="section-label" id="label-dates">[ SCHEDULE ]</span>
+      <h2 class="dates-headline">LIVE FREQUENCIES</h2>
+    </div>
+    
+    <div class="dates-table-container">
+      <table class="dates-table" id="shows-table">
+        <thead>
+          <tr>
+            <th scope="col">DATE / ARTIST</th>
+            <th scope="col">EVENT</th>
+            <th scope="col">LOCATION</th>
+            <th scope="col">ACCESS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="table-artist">OCT 12 / SYNTHESIS</td>
+            <td>MUTEK FESTIVAL</td>
+            <td>MONTREAL, CA</td>
+            <td><a href="#tickets-mutek" class="table-link" id="ticket-mutek">[ TICKETS ]</a></td>
+          </tr>
+          <tr>
+            <td class="table-artist">OCT 24 / FREQUENCY MODULATION</td>
+            <td>BERGHAIN</td>
+            <td>BERLIN, DE</td>
+            <td><a href="#tickets-berghain" class="table-link" id="ticket-berghain">[ TICKETS ]</a></td>
+          </tr>
+          <tr>
+            <td class="table-artist">NOV 08 / OSCILLATOR</td>
+            <td>FABRIC</td>
+            <td>LONDON, UK</td>
+            <td><a href="#tickets-fabric" class="table-link" id="ticket-fabric">[ TICKETS ]</a></td>
+          </tr>
+          <tr>
+            <td class="table-artist">NOV 22 / ENVELOPE</td>
+            <td>WOMB</td>
+            <td>TOKYO, JP</td>
+            <td><a href="#tickets-womb" class="table-link" id="ticket-womb">[ TICKETS ]</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Close Section -->
+  <section class="close-section" id="close" aria-label="Close">
+    <div class="close-top-container">
+      <h2 class="close-headline" id="close-title">JOIN THE FREQUENCY</h2>
+      <div class="close-actions">
+        <a href="#bandcamp" class="action-btn" id="btn-bandcamp">BANDCAMP</a>
+        <a href="#soundcloud" class="action-btn" id="btn-soundcloud">SOUNDCLOUD</a>
+      </div>
+    </div>
+    
+    <div class="close-footer-strip">
+      <div class="footer-fineprint" id="footer-copyright">©2026 AMBER & TEAL RECORDINGS. ALL RIGHTS RESERVED.</div>
+      <div class="footer-newsletter-box" id="newsletter">
+        <form class="newsletter-form" id="subscribe-form" onsubmit="event.preventDefault(); alert('Subscribed to frequency.');">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="EMAIL FREQUENCY" required aria-label="Newsletter email input">
+          <button type="submit" class="newsletter-submit" id="btn-submit-newsletter" aria-label="Submit newsletter form">&rarr;</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Cropped Full-Width Wordmark -->
+    <div class="cropped-wordmark-container">
+      <div class="cropped-wordmark" id="cropped-logo">AMBER & TEAL</div>
+    </div>
+  </section>
+
+  <!-- Floating Catchy Audio Player -->
+  <div class="audio-player-pill" id="audio-player">
+    <button class="audio-play-btn" id="play-btn" aria-label="Play background music">
+      <svg class="play-icon" id="play-svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg class="pause-icon hidden" id="pause-svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+    <div class="audio-track-info">
+      <span class="audio-track-label">NOW PLAYING</span>
+      <span class="audio-track-title" id="track-title">CIRCUITS & CURVES</span>
+    </div>
+    <div class="audio-visualizer" id="visualizer">
+      <span class="vis-bar bar-1"></span>
+      <span class="vis-bar bar-2"></span>
+      <span class="vis-bar bar-3"></span>
+    </div>
+    <audio id="bg-audio" loop src="https://assets.codepen.io/4358584/Anitek_-_01_-_Kisses.mp3"></audio>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>

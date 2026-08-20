@@ -1,0 +1,1276 @@
+/* ==========================================================================
+   AMBER & TEAL DESIGN SYSTEM & MAIN STYLES
+   ========================================================================== */
+
+/* Typography & Core Tokens */
+:root {
+  /* Colors */
+  --ground: #0A0C0E;
+  --secondary-ground: #101317;
+  --ink: #EDE7DC;
+  --secondary-ink: #9EA5A8;
+  --muted: #6C7378;
+  --amber: #E8913C;
+  --teal: #2E6B72;
+  --hairline: rgba(237, 231, 220, 0.13);
+
+  /* Font Families */
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Sora', sans-serif;
+}
+
+/* Base Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 58px;
+  background: rgba(10, 12, 14, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hairline);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-wordmark .accent-dot {
+  color: var(--amber);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--secondary-ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--amber);
+}
+
+.nav-cta-btn {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.nav-cta-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+/* ==========================================================================
+   PORTAL HERO SECTION
+   ========================================================================== */
+.portal-hero {
+  height: 250vh;
+  position: relative;
+}
+
+.portal-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  background: var(--ground);
+}
+
+/* Background image & filters */
+.hero-image-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.25);
+  transform-origin: center center;
+}
+
+.duotone-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--amber) 100%);
+  mix-blend-mode: overlay;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radial-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, rgba(10, 12, 14, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* Two closing/opening sliding panels */
+.portal-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.2vw;
+  background: var(--ground);
+  z-index: 2;
+}
+
+.left-panel {
+  left: 0;
+  border-right: 1px solid var(--hairline);
+}
+
+.right-panel {
+  right: 0;
+  border-left: 1px solid var(--hairline);
+}
+
+/* Traveling accent dots */
+.accent-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot-teal {
+  background: var(--teal);
+}
+
+.dot-amber {
+  background: var(--amber);
+}
+
+/* Sticky Wordmark Title */
+.portal-wordmark {
+  position: relative;
+  z-index: 4;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 11vw, 9.5rem);
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.wordmark-half {
+  display: inline-block;
+}
+
+/* Corner Metadata absolute pinning */
+.corner-metadata {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 5;
+  pointer-events: none;
+  padding: 32px;
+}
+
+.corner-metadata.top-left {
+  top: 58px;
+  left: 0;
+}
+
+.corner-metadata.top-right {
+  top: 58px;
+  right: 0;
+}
+
+.corner-metadata.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-metadata.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* ==========================================================================
+   STATEMENT FOLD SECTION
+   ========================================================================== */
+.statement-fold {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 120px 8%;
+  background: var(--ground);
+  overflow: hidden;
+}
+
+.statement-num {
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(10rem, 24vw, 30rem);
+  -webkit-text-stroke: 1px var(--hairline);
+  color: transparent;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.statement-content {
+  position: relative;
+  z-index: 2;
+  max-width: 60%;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 3.6vw, 52px);
+  line-height: 1.25;
+  color: var(--ink);
+  max-width: 22ch;
+  margin-top: 24px;
+  letter-spacing: -0.02em;
+}
+
+.highlight-text {
+  color: var(--amber);
+}
+
+/* Parallax floating vinyl record */
+.vinyl-wrapper {
+  position: absolute;
+  right: -12vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44vw;
+  height: 44vw;
+  max-width: 580px;
+  max-height: 580px;
+  min-width: 300px;
+  min-height: 300px;
+  z-index: 1;
+  opacity: 0.25;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.parallax-vinyl {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transform-origin: center center;
+}
+
+/* ==========================================================================
+   RELEASES SECTION (WITH CARD DECK)
+   ========================================================================== */
+.releases-section {
+  background: var(--secondary-ground);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: 120px 8%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.releases-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.releases-info {
+  max-width: 480px;
+}
+
+.releases-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  color: var(--ink);
+  margin-top: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.releases-lede {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--secondary-ink);
+  margin: 32px 0 48px 0;
+}
+
+.btn-group {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.action-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.secondary-btn {
+  border-color: var(--hairline);
+  color: var(--secondary-ink);
+}
+
+.secondary-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+/* Throwable Card Deck styles */
+.releases-deck-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.deck-container {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  outline: none;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-container:active {
+  cursor: grabbing;
+}
+
+/* Keyboard focus outline ring for accessibility */
+.deck-container:focus-visible .deck-card {
+  border-color: var(--teal);
+}
+
+.deck-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-ground);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transform-origin: center center;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
+  pointer-events: none; /* Pointer tracked at container level */
+}
+
+/* Sleek physical offsets for stack realism */
+.deck-card[data-index="3"] {
+  transform: translate3d(8px, 12px, -30px) scale(0.92) rotate(2.5deg);
+  z-index: 10;
+}
+.deck-card[data-index="2"] {
+  transform: translate3d(-6px, 6px, -20px) scale(0.95) rotate(-1.5deg);
+  z-index: 20;
+}
+.deck-card[data-index="1"] {
+  transform: translate3d(4px, -6px, -10px) scale(0.98) rotate(1deg);
+  z-index: 30;
+}
+.deck-card[data-index="0"] {
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  z-index: 40;
+}
+
+/* Card internal design */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.card-sleeve-art {
+  flex: 1;
+  background: var(--ground);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-info {
+  height: 80px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-meta {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  margin-top: 4px;
+  letter-spacing: -0.01em;
+}
+
+.card-artist {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--secondary-ink);
+  margin-top: 2px;
+}
+
+/* CSS Sleev Art Geometric Vectors (No heavy images) */
+/* Art 001 - Grid + Ring */
+.art-geometric-grid {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(var(--hairline) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+}
+.art-geometric-grid::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid var(--hairline);
+}
+.art-geometric-grid::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--amber);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Art 002 - Split lines */
+.art-split-lines {
+  width: 100%;
+  height: 100%;
+}
+.art-split-lines::before {
+  content: '';
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+  background: var(--hairline);
+}
+.art-split-lines::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 1px;
+  background: var(--amber);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Art 003 - Crosshairs */
+.art-crosshairs {
+  width: 100%;
+  height: 100%;
+}
+.art-crosshairs::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--teal);
+  transform: translate(-50%, -50%);
+}
+.art-crosshairs::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 1px;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+
+/* Art 004 - Concentric dash */
+.art-circle-teal {
+  width: 100%;
+  height: 100%;
+}
+.art-circle-teal::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 110px;
+  height: 110px;
+  border: 1px dashed var(--teal);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.art-circle-teal::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--amber);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Indicators under Deck */
+.deck-controls {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deck-hint {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.deck-progress {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.progress-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hairline);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.progress-dot.active {
+  background: var(--amber);
+}
+
+/* ==========================================================================
+   ROSTER SECTION
+   ========================================================================== */
+.roster-section {
+  padding: 120px 8%;
+  background: var(--ground);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.section-header {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.roster-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  color: var(--ink);
+  margin-top: 16px;
+  letter-spacing: -0.02em;
+}
+
+.roster-list {
+  max-width: 1440px;
+  margin: 48px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.roster-row {
+  display: flex;
+  align-items: center;
+  padding: 28px 0;
+  border-top: 1px solid var(--hairline);
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.roster-row:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.roster-index {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  width: 48px;
+}
+
+.roster-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  color: var(--ink);
+  flex: 1;
+  letter-spacing: -0.02em;
+  transition: color 0.3s;
+}
+
+.roster-count {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--secondary-ink);
+  text-transform: uppercase;
+}
+
+/* Hover rule animation */
+.roster-row:hover {
+  border-top-color: var(--teal);
+}
+
+/* Ensure next sibling row boundary lights up too, or use JS. In CSS we can only target subsequent siblings */
+.roster-row:hover + .roster-row {
+  border-top-color: var(--teal);
+}
+
+.roster-row:hover .roster-name {
+  color: var(--amber);
+}
+
+/* ==========================================================================
+   DATES SECTION
+   ========================================================================== */
+.dates-section {
+  padding: 120px 8%;
+  background: var(--ground);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.dates-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  color: var(--ink);
+  margin-top: 16px;
+  letter-spacing: -0.02em;
+}
+
+.dates-table-container {
+  max-width: 1440px;
+  margin: 48px auto 0 auto;
+}
+
+.dates-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.dates-table th {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--hairline);
+  text-transform: uppercase;
+}
+
+.dates-table td {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 400;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--secondary-ink);
+}
+
+.dates-table tr:hover td {
+  color: var(--ink);
+}
+
+.table-artist {
+  font-family: var(--font-display) !important;
+  font-weight: 700;
+  font-size: 17px !important;
+  color: var(--ink) !important;
+  letter-spacing: -0.01em;
+}
+
+.table-link {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--secondary-ink);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.table-link:hover {
+  color: var(--amber);
+}
+
+/* ==========================================================================
+   CLOSE SECTION (FOOTER AREA)
+   ========================================================================== */
+.close-section {
+  background: var(--ground);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 120px 8% 0 8%;
+  min-height: 80vh;
+  justify-content: space-between;
+}
+
+.close-top-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.close-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5.5vw, 4.8rem);
+  color: var(--ink);
+  line-height: 1.1;
+  max-width: 12ch;
+  letter-spacing: -0.03em;
+}
+
+.close-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.close-footer-strip {
+  max-width: 1440px;
+  margin: 80px auto 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--hairline);
+  padding: 32px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-fineprint {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* Newsletter minimalist form */
+.newsletter-form {
+  display: flex;
+  border: 1px solid var(--hairline);
+  border-radius: 30px;
+  padding: 6px 14px 6px 20px;
+  width: 300px;
+  align-items: center;
+  transition: border-color 0.3s;
+}
+
+.newsletter-form:focus-within {
+  border-color: var(--teal);
+}
+
+.newsletter-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.newsletter-input::placeholder {
+  color: var(--muted);
+}
+
+.newsletter-submit {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--secondary-ink);
+  font-size: 16px;
+  cursor: pointer;
+  padding-left: 8px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.newsletter-submit:hover {
+  color: var(--amber);
+  transform: translateX(4px);
+}
+
+/* Bottom Cropped Wordmark */
+.cropped-wordmark-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: clamp(80px, 16vw, 220px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.cropped-wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(5.5rem, 16vw, 20rem);
+  color: var(--ink);
+  line-height: 0.7;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: justify;
+  text-align-last: justify;
+  transform: translateY(18%);
+  opacity: 0.95;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUTS & MOBILE STYLING
+   ========================================================================== */
+
+/* Medium Devices (Tablets, e.g. < 992px) */
+@media (max-width: 992px) {
+  .releases-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    justify-items: center;
+    text-align: center;
+  }
+  .releases-info {
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn-group {
+    justify-content: center;
+  }
+}
+
+/* Mobile Devices (< 768px) */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide standard nav links on mobile to prevent overlap */
+  }
+  
+  .corner-metadata.top-left,
+  .corner-metadata.top-right {
+    display: none; /* Hide top corner meta to avoid cluttered look */
+  }
+  
+  .statement-content {
+    max-width: 100%;
+  }
+  
+  .vinyl-wrapper {
+    width: 60vw;
+    height: 60vw;
+    right: -20vw;
+  }
+  
+  .close-top-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .close-footer-strip {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+}
+
+/* Collapsing Table per specification on narrow screens (< 600px) */
+@media (max-width: 600px) {
+  .deck-container {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .dates-table thead {
+    display: none; /* Hide header completely */
+  }
+  
+  .dates-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--hairline);
+    gap: 8px;
+  }
+  
+  .dates-table td {
+    padding: 0;
+    border-bottom: none;
+  }
+  
+  .dates-table td:nth-child(1) {
+    grid-column: 1 / span 2;
+    margin-bottom: 4px;
+  }
+  
+  .dates-table td:nth-child(2) {
+    grid-column: 1;
+    font-size: 12.5px;
+  }
+  
+  .dates-table td:nth-child(3) {
+    grid-column: 2;
+    text-align: right;
+    font-size: 12.5px;
+  }
+  
+  .dates-table td:nth-child(4) {
+    grid-column: 1 / span 2;
+    text-align: left;
+    margin-top: 8px;
+  }
+}
+
+/* ==========================================================================
+   MOTION SAFETY RULES (NO ACCIDENTAL ILLNESS OR VERTIGO EFFECTS)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  /* Stop all transitions & scroll overrides */
+  .portal-panel,
+  .hero-bg-img,
+  .duotone-wash,
+  .accent-dot,
+  .wordmark-half,
+  .parallax-vinyl,
+  .deck-card {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    left: revert !important;
+    right: revert !important;
+    top: revert !important;
+  }
+  
+  /* Hardcode portal open and metadata states */
+  .left-panel {
+    transform: translateX(-101%) !important;
+  }
+  .right-panel {
+    transform: translateX(101%) !important;
+  }
+  .hero-bg-img {
+    transform: scale(1) !important;
+  }
+  .duotone-wash {
+    opacity: 0.35 !important;
+  }
+  .dot-teal {
+    left: 10% !important;
+    top: 10% !important;
+  }
+  .dot-amber {
+    left: 90% !important;
+    top: 90% !important;
+  }
+  .portal-wordmark {
+    scale: 1.25 !important;
+    letter-spacing: -0.03em !important;
+  }
+  .left-half {
+    transform: translateX(-50%) !important;
+  }
+  .right-half {
+    transform: translateX(50%) !important;
+  }
+}
+
+/* ==========================================================================
+   FLOATING CATCHY AUDIO PLAYER (GEN Z STYLE)
+   ========================================================================== */
+.audio-player-pill {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  height: 52px;
+  background: var(--secondary-ground);
+  border: 1px solid var(--hairline);
+  border-radius: 26px;
+  padding: 0 24px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 9999;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.audio-player-pill:hover {
+  border-color: var(--teal);
+}
+
+.audio-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.audio-play-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.play-icon, .pause-icon {
+  display: block;
+}
+
+.play-icon.hidden, .pause-icon.hidden {
+  display: none;
+}
+
+.audio-track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 180px;
+}
+
+.audio-track-label {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.audio-track-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--secondary-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+/* Audio Visualizer */
+.audio-visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+}
+
+.vis-bar {
+  width: 2px;
+  height: 2px;
+  background: var(--teal);
+  transition: height 0.3s ease;
+}
+
+.audio-player-pill.playing .vis-bar {
+  background: var(--amber);
+  animation: visBounce 0.6s ease-in-out infinite alternate;
+}
+
+.audio-player-pill.playing .bar-1 { animation-delay: 0.1s; }
+.audio-player-pill.playing .bar-2 { animation-delay: 0.25s; }
+.audio-player-pill.playing .bar-3 { animation-delay: 0.4s; }
+
+@keyframes visBounce {
+  0% { height: 2px; }
+  100% { height: 14px; }
+}
+
+@media (max-width: 600px) {
+  .audio-player-pill {
+    bottom: 16px;
+    left: 16px;
+    height: 48px;
+    padding: 0 16px 0 10px;
+    gap: 12px;
+  }
+  .audio-track-title {
+    max-width: 120px;
+  }
+}
+
