@@ -295,6 +295,8 @@
   let audioCtx = null;
   let synthInterval = null;
   let synthSequence = 0;
+  let bassBoostNode = null;
+  let masterGainNode = null;
 
   function startSynthLoop() {
     if (!audioCtx) {
@@ -304,16 +306,29 @@
       audioCtx.resume();
     }
 
-    const tempo = 125;
+    // Master Audio routing with lowshelf bass boost and high gain
+    bassBoostNode = audioCtx.createBiquadFilter();
+    bassBoostNode.type = 'lowshelf';
+    bassBoostNode.frequency.setValueAtTime(140, audioCtx.currentTime); // boost below 140Hz
+    bassBoostNode.gain.setValueAtTime(17, audioCtx.currentTime); // +17dB bass boost!
+
+    masterGainNode = audioCtx.createGain();
+    masterGainNode.gain.setValueAtTime(1.9, audioCtx.currentTime); // loud master volume
+
+    // Route: BassBoost -> MasterGain -> Destination
+    bassBoostNode.connect(masterGainNode);
+    masterGainNode.connect(audioCtx.destination);
+
+    const tempo = 128; // faster, energetic Gen Z pace
     const noteLength = 60 / tempo / 2; // eighth notes
     let nextNoteTime = audioCtx.currentTime;
 
-    // Catchy Gen Z electronic synth progression
+    // Deep sub-bass progression (two octaves lower)
     const melody = [
-      130.81, 261.63, 196.00, 311.13, 196.00, 261.63, 196.00, 311.13,
-      103.83, 261.63, 155.56, 311.13, 155.56, 261.63, 155.56, 311.13,
-      77.78, 392.00, 233.08, 466.16, 233.08, 392.00, 233.08, 466.16,
-      116.54, 293.66, 174.61, 349.23, 174.61, 293.66, 174.61, 349.23
+      65.41, 130.81, 98.00, 155.56, 98.00, 130.81, 98.00, 155.56,
+      51.91, 103.83, 77.78, 155.56, 77.78, 103.83, 77.78, 155.56,
+      38.89, 77.78, 58.27, 116.54, 58.27, 77.78, 58.27, 116.54,
+      58.27, 116.54, 87.31, 174.61, 87.31, 116.54, 87.31, 174.61
     ];
 
     function scheduleNotes() {
@@ -321,7 +336,7 @@
         const step = synthSequence % melody.length;
         const freq = melody[step];
 
-        // Triangle Synth Voice
+        // Triangle synth oscillator
         const osc = audioCtx.createOscillator();
         const oscGain = audioCtx.createGain();
         const filter = audioCtx.createBiquadFilter();
@@ -329,40 +344,41 @@
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(freq, nextNoteTime);
 
-        // Warm lowpass filter sweep
+        // Lowpass resonance sweep
         filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(600, nextNoteTime);
-        filter.frequency.exponentialRampToValueAtTime(150, nextNoteTime + noteLength);
+        filter.frequency.setValueAtTime(700, nextNoteTime);
+        filter.frequency.exponentialRampToValueAtTime(120, nextNoteTime + noteLength);
 
         oscGain.gain.setValueAtTime(0, nextNoteTime);
-        oscGain.gain.linearRampToValueAtTime(0.08, nextNoteTime + 0.01);
+        oscGain.gain.linearRampToValueAtTime(0.09, nextNoteTime + 0.015);
         oscGain.gain.exponentialRampToValueAtTime(0.001, nextNoteTime + noteLength - 0.01);
 
         osc.connect(filter);
         filter.connect(oscGain);
-        oscGain.connect(audioCtx.destination);
+        // Connect to bass boost node to emphasize low harmonics
+        oscGain.connect(bassBoostNode);
 
         osc.start(nextNoteTime);
         osc.stop(nextNoteTime + noteLength);
 
-        // Bass/Kick sound on beats
+        // Heavy Bass Kick (Loud, pitch sweep)
         if (synthSequence % 4 === 0) {
           const kick = audioCtx.createOscillator();
           const kickGain = audioCtx.createGain();
-          kick.frequency.setValueAtTime(130, nextNoteTime);
-          kick.frequency.exponentialRampToValueAtTime(35, nextNoteTime + 0.12);
+          kick.frequency.setValueAtTime(140, nextNoteTime);
+          kick.frequency.exponentialRampToValueAtTime(32, nextNoteTime + 0.12);
 
-          kickGain.gain.setValueAtTime(0.25, nextNoteTime);
-          kickGain.gain.exponentialRampToValueAtTime(0.001, nextNoteTime + 0.15);
+          kickGain.gain.setValueAtTime(0.55, nextNoteTime); // double gain volume
+          kickGain.gain.exponentialRampToValueAtTime(0.001, nextNoteTime + 0.16);
 
           kick.connect(kickGain);
-          kickGain.connect(audioCtx.destination);
+          kickGain.connect(bassBoostNode); // connect to bass boost for massive punch
 
           kick.start(nextNoteTime);
-          kick.stop(nextNoteTime + 0.18);
+          kick.stop(nextNoteTime + 0.2);
         }
 
-        // Noise Hi-hat on off-beats
+        // Noise Hi-hat (Connect directly to master to bypass bass boost and stay crisp)
         if (synthSequence % 4 === 2) {
           const bufferSize = audioCtx.sampleRate * 0.04;
           const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
@@ -376,15 +392,15 @@
 
           const hpFilter = audioCtx.createBiquadFilter();
           hpFilter.type = 'highpass';
-          hpFilter.frequency.value = 8000;
+          hpFilter.frequency.value = 8500;
 
           const noiseGain = audioCtx.createGain();
-          noiseGain.gain.setValueAtTime(0.02, nextNoteTime);
+          noiseGain.gain.setValueAtTime(0.045, nextNoteTime);
           noiseGain.gain.exponentialRampToValueAtTime(0.001, nextNoteTime + 0.04);
 
           noise.connect(hpFilter);
           hpFilter.connect(noiseGain);
-          noiseGain.connect(audioCtx.destination);
+          noiseGain.connect(masterGainNode); // directly to master
 
           noise.start(nextNoteTime);
           noise.stop(nextNoteTime + 0.05);
