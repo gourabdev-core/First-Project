@@ -1,5 +1,8 @@
 # AMBER & TEAL — Record Label Landing Page
 
+<img width="1904" height="970" alt="image" src="https://github.com/user-attachments/assets/a8014779-6d12-4fa1-9e11-c3c2d5b4f48d" />
+
+
 An interactive, motion-focused, and premium record label landing page customized for **Gourab Ghosh**. Built with raw semantic HTML5, modern vanilla CSS layouts, and native high-performance JavaScript engines (no bulky frameworks or runtime dependencies).
 
 ## Key Features
